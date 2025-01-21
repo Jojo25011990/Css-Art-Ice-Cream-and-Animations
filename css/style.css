@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+input,
+button,
+textarea {
+  background-color: #fff;
+  border: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Smooch Sans", serif;
+  overflow-x: hidden;
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-0 {
+  flex-direction: column;
+}
+.section-0__heading-primary {
+  color: #fff;
+  font-size: 10rem;
+  text-shadow: -0.1rem -0.1rem 0 #000, -0.2rem -0.2rem 0 #000;
+  opacity: 0;
+  transform: rotate(-15deg);
+  animation: primary-animate 0.4s ease-in-out 0.25s forwards;
+}
+@media (max-width: 660px) {
+  .section-0__heading-primary {
+    font-size: 7.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .section-0__heading-primary {
+    font-size: 5rem;
+  }
+}
+.section-0__heading-secondary {
+  color: #fff;
+  font-size: 5rem;
+  text-shadow: -0.1rem -0.1rem 0 #000, -0.2rem -0.2rem 0 #000;
+  opacity: 0;
+  transform: rotate(15deg);
+  animation: primary-animate 0.4s ease-in-out 0.55s forwards;
+}
+@media (max-width: 500px) {
+  .section-0__heading-secondary {
+    font-size: 3rem;
+  }
+}
+
+@keyframes primary-animate {
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+.section-1 .ice-cream {
+  width: 22rem;
+  height: 40rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.section-1 .ice-cream__01 {
+  width: 20rem;
+  height: 30rem;
+  background: #fff1c1;
+  border-radius: 15rem 15rem 5rem 5rem;
+}
+.section-1 .ice-cream__02 {
+  width: 5rem;
+  height: 9rem;
+  background: #e6ac84;
+  position: relative;
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+}
+.section-1 .ice-cream__02::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1.5rem;
+  background: rgba(34, 34, 34, 0.1);
+}
+
+.section-2 .ice-cream, .section-3 .ice-cream {
+  width: 22rem;
+  height: 40rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.section-2 .ice-cream__01, .section-3 .ice-cream__01 {
+  width: 20rem;
+  height: 30rem;
+  background: #fff1c1;
+  border-radius: 15rem 15rem 5rem 5rem;
+}
+.section-2 .ice-cream__02, .section-3 .ice-cream__02 {
+  width: 5rem;
+  height: 9rem;
+  background: #e6ac84;
+  position: relative;
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+}
+.section-2 .ice-cream__02::before, .section-3 .ice-cream__02::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1.5rem;
+  background: rgba(34, 34, 34, 0.1);
+}
+.section-2 .ice-cream__bite-01, .section-3 .ice-cream__bite-01 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10rem;
+  height: 10rem;
+  background-color: #222;
+  border-radius: 50%;
+}
+.section-2 .ice-cream__bite-02, .section-3 .ice-cream__bite-02 {
+  position: absolute;
+  top: -2rem;
+  right: 0.8rem;
+  width: 15rem;
+  height: 15rem;
+  background-color: #222;
+  border-radius: 50%;
+}
+
+.section-3 .ice-cream__bite-03 {
+  position: absolute;
+  top: 4.5rem;
+  left: 0;
+  width: 15rem;
+  height: 15rem;
+  background-color: #222;
+  border-radius: 50%;
+  opacity: 0;
+}
+.section-3 .ice-cream__bite-04 {
+  position: absolute;
+  top: 6rem;
+  right: -1.5rem;
+  width: 15rem;
+  height: 15rem;
+  background-color: #222;
+  border-radius: 50%;
+  opacity: 0;
+}
+.section-3 .ice-cream__melting-01 {
+  position: absolute;
+  bottom: 10rem;
+  left: 3rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: #fff1c1;
+  border-radius: 50%;
+  border-top-right-radius: 0;
+  transform: rotate(-45deg);
+}
+.section-3 .ice-cream__splash-base {
+  position: absolute;
+  width: 100%;
+  height: 10rem;
+  left: 0;
+  bottom: -10rem;
+  background-color: #222;
+}
+.section-3 .ice-cream__splash-base-01 {
+  position: absolute;
+  top: 0;
+  left: 4%;
+  width: 40%;
+  height: 0.3rem;
+  background-color: #fff1c1;
+  scale: 0;
+  transform-origin: center;
+}
+
+@keyframes bite-animate {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes tears-drop {
+  0% {
+    bottom: 10rem;
+    opacity: 1;
+  }
+  50% {
+    bottom: 8rem;
+    opacity: 1;
+  }
+  51%, 99% {
+    opacity: 1;
+  }
+  100% {
+    bottom: -4rem;
+    opacity: 0;
+  }
+}
+@keyframes scale-splash {
+  0% {
+    scale: 0;
+    opacity: 1;
+  }
+  50% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 1;
+    opacity: 0;
+  }
+}

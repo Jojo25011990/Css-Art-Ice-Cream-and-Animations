@@ -1,0 +1,272 @@
+@forward "./reset";
+
+// *** Variables ***
+// *** Colors ***
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-black-dark: #222;
+
+$color-ice-cream: #fff1c1;
+$color-stick: #e6ac84;
+
+// *** Mixins ****
+// *** Flex Center ***
+@mixin flex-center() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// *** Ice Cream ***
+@mixin ice-cream() {
+	.ice-cream {
+		width: 22rem;
+		height: 40rem;
+		position: relative;
+
+		@include flex-center;
+		flex-direction: column;
+
+		&__01 {
+			width: 20rem;
+			height: 30rem;
+			background: $color-ice-cream;
+			border-radius: 15rem 15rem 5rem 5rem;
+		}
+
+		&__02 {
+			width: 5rem;
+			height: 9rem;
+			background: $color-stick;
+			position: relative;
+			border-bottom-left-radius: 1.2rem;
+			border-bottom-right-radius: 1.2rem;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 1.5rem;
+				background: rgba($color: $color-black-dark, $alpha: 0.1);
+			}
+		}
+	}
+}
+
+//
+// html {
+
+// }
+
+// }
+
+body {
+	font-family: "Smooch Sans", serif;
+	overflow-x: hidden;
+}
+
+// *** General Section Settings ***
+.section {
+	width: 100%;
+	height: 100vh;
+	background-color: $color-black-dark;
+
+	@include flex-center;
+}
+// *** End of General Section Settings ***
+
+// *** Section 0 ***
+.section-0 {
+	flex-direction: column;
+
+	&__heading-primary {
+		color: $color-white;
+		font-size: 10rem;
+		text-shadow: -0.1rem -0.1rem 0 $color-black,
+			-0.2rem -0.2rem 0 $color-black;
+
+		opacity: 0;
+		transform: rotate(-15deg);
+
+		animation: primary-animate 0.4s ease-in-out 0.25s forwards;
+
+		@media (max-width: 660px) {
+			font-size: 7.5rem;
+		}
+
+		@media (max-width: 500px) {
+			font-size: 5rem;
+		}
+	}
+
+	&__heading-secondary {
+		color: $color-white;
+		font-size: 5rem;
+		text-shadow: -0.1rem -0.1rem 0 $color-black,
+			-0.2rem -0.2rem 0 $color-black;
+
+		opacity: 0;
+		transform: rotate(15deg);
+
+		animation: primary-animate 0.4s ease-in-out 0.55s forwards;
+
+		@media (max-width: 500px) {
+			font-size: 3rem;
+		}
+	}
+}
+
+@keyframes primary-animate {
+	to {
+		opacity: 1;
+		transform: rotate(0deg);
+	}
+}
+// *** End of Section 0 ***
+
+// *** Section 1 ***
+.section-1 {
+	@include ice-cream;
+}
+// *** End of Section 1 ***
+
+// *** Section 2 ***
+.section-2 {
+	@include ice-cream;
+
+	.ice-cream {
+		&__bite-01 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 10rem;
+			height: 10rem;
+			background-color: $color-black-dark;
+			border-radius: 50%;
+		}
+
+		&__bite-02 {
+			position: absolute;
+			top: -2rem;
+			right: 0.8rem;
+			width: 15rem;
+			height: 15rem;
+			background-color: $color-black-dark;
+			border-radius: 50%;
+		}
+	}
+}
+// *** End of Section 2 ***
+
+// ***  Section 3 ***
+.section-3 {
+	@extend .section-2;
+
+	.ice-cream {
+		&__bite-03 {
+			position: absolute;
+			top: 4.5rem;
+			left: 0;
+			width: 15rem;
+			height: 15rem;
+			background-color: $color-black-dark;
+			border-radius: 50%;
+
+			opacity: 0;
+		}
+
+		&__bite-04 {
+			position: absolute;
+			top: 6rem;
+			right: -1.5rem;
+			width: 15rem;
+			height: 15rem;
+			background-color: $color-black-dark;
+			border-radius: 50%;
+
+			opacity: 0;
+		}
+
+		&__melting-01 {
+			position: absolute;
+			bottom: 10rem;
+			left: 3rem;
+			width: 4rem;
+			height: 4rem;
+			background-color: $color-ice-cream;
+			border-radius: 50%;
+			border-top-right-radius: 0;
+			transform: rotate(-45deg);
+		}
+
+		&__splash-base {
+			position: absolute;
+			width: 100%;
+			height: 10rem;
+			left: 0;
+			bottom: -10rem;
+			background-color: $color-black-dark;
+
+			&-01 {
+				position: absolute;
+				top: 0;
+				left: 4%;
+				width: 40%;
+				height: 0.3rem;
+				background-color: $color-ice-cream;
+				scale: 0;
+
+				transform-origin: center;
+			}
+		}
+	}
+}
+
+@keyframes bite-animate {
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes tears-drop {
+	0% {
+		bottom: 10rem;
+		opacity: 1;
+	}
+
+	50% {
+		bottom: 8rem;
+		opacity: 1;
+	}
+
+	51%,
+	99% {
+		opacity: 1;
+	}
+
+	100% {
+		bottom: -4rem;
+		opacity: 0;
+	}
+}
+
+@keyframes scale-splash {
+	0% {
+		scale: 0;
+		opacity: 1;
+	}
+
+	50% {
+		scale: 1;
+		opacity: 1;
+	}
+
+	100% {
+		scale: 1;
+		opacity: 0;
+	}
+}
+// *** End of Section 3 ***
